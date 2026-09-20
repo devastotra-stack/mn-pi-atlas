@@ -10,3 +10,6 @@ artifacts/
 .grok/status
 .grok/favicon-preview.html
 .grok/*.png
+pages-dist/
+.output/
+dist/

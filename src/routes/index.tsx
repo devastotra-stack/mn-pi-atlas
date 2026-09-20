@@ -8,6 +8,7 @@ import { FindingsCharts } from "@/components/report/findings-charts";
 import { DynamicsLab } from "@/components/report/dynamics-lab";
 import { Constellation } from "@/components/report/constellation";
 import { homologs, navItems, paperStats, paradoxPoints } from "@/lib/report-data";
+import { publicUrl } from "@/lib/public-url";
 
 export const Route = createFileRoute("/")({ component: Home });
 
@@ -98,7 +99,7 @@ function TopBar() {
           ))}
         </nav>
         <Button size="sm" className="ml-auto lg:ml-2" asChild>
-          <a href="/mn-pi-atlas.pdf" download>
+          <a href={publicUrl("mn-pi-atlas.pdf")} download>
             <Download />
             Download PDF
           </a>
