@@ -23,32 +23,26 @@ const steps = [
   {
     id: "ppk",
     kicker: "04  Storage",
-    title: "PPK → PolyP-Mn",
-    body: "Polyphosphate kinase polymerizes Pi. Long-chain PolyP chelates Mn²⁺ into granules — a safe warehouse.",
+    title: "PPK to PolyP-Mn",
+    body: "Polyphosphate kinase polymerizes Pi. Long-chain PolyP chelates Mn²⁺ into granules, a safe warehouse.",
   },
   {
     id: "ppx",
     kicker: "05  Stress release",
-    title: "PPX → Mn-Pi",
+    title: "PPX to Mn-Pi",
     body: "Under H₂O₂ or radiation, exopolyphosphatase hydrolyzes PolyP-Mn and dumps bioavailable Mn-Pi.",
   },
   {
     id: "ros",
     kicker: "06  Protection",
     title: "ROS sink",
-    body: "Mn-Pi scavenges O₂⁻, •OH and H₂O₂, shielding proteins from carbonylation. Survival holds.",
+    body: "Mn-Pi scavenges O₂⁻, ·OH and H₂O₂, shielding proteins from carbonylation. Survival holds.",
   },
 ];
 
 function Connector({ className }: { className?: string }) {
   return (
-    <div
-      className={cn(
-        "flex items-center justify-center text-faint",
-        className,
-      )}
-      aria-hidden
-    >
+    <div className={cn("flex items-center justify-center text-faint", className)} aria-hidden>
       <ArrowRight className="hidden size-4 lg:block" strokeWidth={1.5} />
       <ArrowDown className="size-4 lg:hidden" strokeWidth={1.5} />
     </div>
@@ -60,14 +54,12 @@ export function PathwayFigure() {
     <figure className="m-0">
       <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="font-sans text-[11px] font-medium tracking-[0.16em] text-accent uppercase">
-            Figure 1
-          </p>
-          <h3 className="mt-1 font-display text-xl font-medium text-balance text-ink md:text-2xl">
+          <p className="kicker">Figure 1</p>
+          <h3 className="mt-1 font-display text-xl font-medium text-ink md:text-2xl">
             The Mn-Pi enrichment circuit
           </h3>
         </div>
-        <p className="max-w-sm font-sans text-xs leading-relaxed text-muted">
+        <p className="max-w-sm text-xs leading-relaxed text-muted">
           Side systems MntH (Mn-specific import) and FeoB (Fe²⁺ gating) keep the
           Mn/Fe ratio high so Fenton chemistry stays suppressed.
         </p>
@@ -96,7 +88,7 @@ export function PathwayFigure() {
         ))}
       </div>
 
-      <figcaption className="mt-5 max-w-3xl font-sans text-xs leading-relaxed text-muted">
+      <figcaption className="mt-5 max-w-3xl text-xs leading-relaxed text-muted">
         Knocking out <em>drpitA</em> starves every downstream step: less Pi, less
         Mn, no PolyP surge under peroxide, more ROS, more protein carbonyls,
         collapse of survival. Complementation restores the circuit.
@@ -119,23 +111,11 @@ function StepCard({
         accent ? "bg-accent text-accent-fg" : "bg-surface text-ink",
       )}
     >
-      <p
-        className={cn(
-          "font-sans text-[10px] font-medium tracking-[0.14em] uppercase",
-          accent ? "text-accent-fg/70" : "text-faint",
-        )}
-      >
+      <p className={cn("label-caps", accent ? "text-accent-fg/70" : "text-faint")}>
         {step.kicker}
       </p>
-      <h4 className="mt-2 font-display text-lg font-medium tracking-tight">
-        {step.title}
-      </h4>
-      <p
-        className={cn(
-          "mt-2 font-sans text-sm leading-relaxed",
-          accent ? "text-accent-fg/85" : "text-muted",
-        )}
-      >
+      <h4 className="mt-2 font-display text-lg font-medium tracking-tight">{step.title}</h4>
+      <p className={cn("mt-2 text-sm leading-relaxed", accent ? "text-accent-fg/85" : "text-muted")}>
         {step.body}
       </p>
     </article>

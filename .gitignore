@@ -3,3 +3,10 @@ node_modules/
 .github_repo
 .env
 .env.*
+.vercel/
+screenshots/
+artifacts/
+.grok/preview.log
+.grok/status
+.grok/favicon-preview.html
+.grok/*.png

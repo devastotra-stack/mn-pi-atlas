@@ -24,11 +24,11 @@ const stressData = [
 ];
 
 const tooltipStyle = {
-  background: "#fbf9f3",
-  border: "1px solid #d6d0c4",
+  background: "#141414",
+  border: "1px solid #2a2a2a",
   borderRadius: 10,
   fontSize: 12,
-  color: "#1a1916",
+  color: "#ffffff",
 };
 
 export function FindingsCharts() {
@@ -36,27 +36,17 @@ export function FindingsCharts() {
     <div className="grid min-w-0 gap-4 md:grid-cols-2">
       <ChartCard
         title="Intracellular Mn and Pi"
-        caption="Restricted medium. ΔdrpitA loses 27% free phosphate and 14% manganese. Iron is unchanged — DrPitA is not an Fe importer."
+        caption="Restricted medium. ΔdrpitA loses 27% free phosphate and 14% manganese. Iron is unchanged. DrPitA is not an Fe importer."
       >
         <ClientChart>
           <BarChart data={ionData} barGap={6}>
             <CartesianGrid stroke="var(--color-line)" vertical={false} />
-            <XAxis
-              dataKey="name"
-              tick={{ fill: "var(--color-muted)", fontSize: 12 }}
-              axisLine={false}
-              tickLine={false}
-            />
-            <YAxis
-              width={32}
-              tick={{ fill: "var(--color-muted)", fontSize: 11 }}
-              axisLine={false}
-              tickLine={false}
-            />
+            <XAxis dataKey="name" tick={{ fill: "var(--color-muted)", fontSize: 12 }} axisLine={false} tickLine={false} />
+            <YAxis width={32} tick={{ fill: "var(--color-muted)", fontSize: 11 }} axisLine={false} tickLine={false} />
             <Tooltip contentStyle={tooltipStyle} />
             <Legend wrapperStyle={{ fontSize: 12 }} />
             <Bar dataKey="WT" fill="var(--color-accent)" radius={[4, 4, 0, 0]} />
-            <Bar dataKey="Mutant" fill="var(--color-rule)" radius={[4, 4, 0, 0]} />
+            <Bar dataKey="Mutant" fill="var(--color-muted)" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ClientChart>
       </ChartCard>
@@ -68,22 +58,12 @@ export function FindingsCharts() {
         <ClientChart>
           <BarChart data={stressData} barGap={6}>
             <CartesianGrid stroke="var(--color-line)" vertical={false} />
-            <XAxis
-              dataKey="name"
-              tick={{ fill: "var(--color-muted)", fontSize: 11 }}
-              axisLine={false}
-              tickLine={false}
-            />
-            <YAxis
-              width={32}
-              tick={{ fill: "var(--color-muted)", fontSize: 11 }}
-              axisLine={false}
-              tickLine={false}
-            />
+            <XAxis dataKey="name" tick={{ fill: "var(--color-muted)", fontSize: 11 }} axisLine={false} tickLine={false} />
+            <YAxis width={32} tick={{ fill: "var(--color-muted)", fontSize: 11 }} axisLine={false} tickLine={false} />
             <Tooltip contentStyle={tooltipStyle} />
             <Legend wrapperStyle={{ fontSize: 12 }} />
             <Bar dataKey="WT" fill="var(--color-accent)" radius={[4, 4, 0, 0]} />
-            <Bar dataKey="Mutant" fill="var(--color-rule)" radius={[4, 4, 0, 0]} />
+            <Bar dataKey="Mutant" fill="var(--color-muted)" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ClientChart>
       </ChartCard>
@@ -118,12 +98,10 @@ function ChartCard({
   children: ReactNode;
 }) {
   return (
-    <figure className="m-0 min-w-0 rounded-[22px] bg-surface p-4 shadow-[var(--shadow-border)] md:p-5">
+    <figure className="panel m-0 min-w-0 p-4 md:p-5">
       <h3 className="font-display text-lg font-medium text-ink">{title}</h3>
       <div className="mt-3 min-w-0">{children}</div>
-      <figcaption className="mt-3 font-sans text-xs leading-relaxed text-muted">
-        {caption}
-      </figcaption>
+      <figcaption className="mt-3 text-xs leading-relaxed text-muted">{caption}</figcaption>
     </figure>
   );
 }

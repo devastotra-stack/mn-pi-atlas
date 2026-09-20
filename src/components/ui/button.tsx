@@ -4,15 +4,13 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-sans text-sm font-medium outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 transition-[scale,background-color,color,box-shadow,opacity] duration-150 ease-out active:not-disabled:scale-[0.96]",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-sans text-sm font-medium outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 transition-[scale,background-color,color,opacity] duration-150 ease-out active:not-disabled:scale-[0.96]",
   {
     variants: {
       variant: {
-        default:
-          "bg-accent text-accent-fg shadow-[0_0_0_1px_rgba(26,25,22,0.12)] hover:opacity-90",
-        outline:
-          "bg-transparent text-ink shadow-[0_0_0_1px_var(--color-line)] hover:bg-chip",
-        ghost: "bg-transparent text-ink hover:bg-chip",
+        default: "bg-accent text-accent-fg hover:opacity-90",
+        outline: "bg-transparent text-ink shadow-[0_0_0_1px_var(--color-line)] hover:bg-chip",
+        ghost: "bg-transparent text-muted hover:bg-chip hover:text-ink",
         inverse: "bg-ink text-bg hover:opacity-90",
       },
       size: {

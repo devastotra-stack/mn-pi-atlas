@@ -36,8 +36,8 @@ export const homologs: Homolog[] = [
     leftLabel: "D. radiodurans representative",
     rightLabel: "L. paracasei homolog model",
     selection: "LYS or ARG or SER or TYR",
-    leftColor: "#7aa0aa",
-    rightColor: "#2f4a56",
+    leftColor: "#8052ff",
+    rightColor: "#15846e",
   },
   {
     id: "mntH",
@@ -55,8 +55,8 @@ export const homologs: Homolog[] = [
     leftLabel: "D. radiodurans representative",
     rightLabel: "L. paracasei homolog model",
     selection: "ASP or GLU or ASN",
-    leftColor: "#8b3a32",
-    rightColor: "#c0754a",
+    leftColor: "#ffb829",
+    rightColor: "#8052ff",
   },
   {
     id: "ppk",
@@ -74,8 +74,8 @@ export const homologs: Homolog[] = [
     leftLabel: "D. radiodurans representative",
     rightLabel: "Homolog catalytic fold",
     selection: "HIS or LYS or ARG",
-    leftColor: "#6b4c7a",
-    rightColor: "#4a3d5c",
+    leftColor: "#8052ff",
+    rightColor: "#ffffff",
   },
   {
     id: "ppx",
@@ -93,8 +93,8 @@ export const homologs: Homolog[] = [
     leftLabel: "D. radiodurans representative",
     rightLabel: "L. paracasei homolog model",
     selection: "ASP or GLU",
-    leftColor: "#b59a4a",
-    rightColor: "#3d5a4c",
+    leftColor: "#ffb829",
+    rightColor: "#15846e",
   },
   {
     id: "feoB",
@@ -112,8 +112,8 @@ export const homologs: Homolog[] = [
     leftLabel: "D. radiodurans representative",
     rightLabel: "L. paracasei homolog model",
     selection: "THR or LYS or ASP",
-    leftColor: "#c0754a",
-    rightColor: "#8b3a32",
+    leftColor: "#15846e",
+    rightColor: "#ffb829",
   },
 ];
 
@@ -163,6 +163,7 @@ export const paradoxPoints = [
 export const navItems = [
   { id: "point", label: "The point" },
   { id: "pathway", label: "Pathway" },
+  { id: "dynamics", label: "Dynamics" },
   { id: "homology", label: "Homologs" },
   { id: "gallery", label: "Active sites" },
   { id: "findings", label: "DrPitA paper" },

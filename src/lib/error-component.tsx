@@ -11,17 +11,12 @@ function errorMessage(error: unknown): string {
 
 export function AppErrorComponent({ error }: ErrorComponentProps) {
   return (
-    <main
-      className={
-        "flex min-h-screen flex-col items-center justify-center gap-3 px-6 text-center " +
-        "bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50"
-      }
-    >
-      <span className="text-red-500" aria-hidden="true">
-        <TriangleAlert className="size-10" strokeWidth={2} />
+    <main className="flex min-h-screen flex-col items-center justify-center gap-6 bg-bg px-6 text-center text-ink">
+      <span className="text-spark" aria-hidden="true">
+        <TriangleAlert className="size-8" strokeWidth={1.5} />
       </span>
-      <h1 className="text-lg font-semibold">Something went wrong</h1>
-      <p className="max-w-md text-sm break-words text-zinc-500 dark:text-zinc-400">
+      <h1 className="font-display text-heading-sm text-ink">Something went wrong</h1>
+      <p className="max-w-md text-sm break-words text-muted">
         {errorMessage(error)}
       </p>
     </main>
