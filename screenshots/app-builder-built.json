@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Mn-Pi Atlas",
+      "hasCanvas": false,
+      "bodyTextLen": 9417,
+      "bodyTextHash": "b5d99fe0e2e076e949cede47f705a4429ccb870526b74faa7aad7dfad31057d6",
+      "bodyTextPrefix": "Skip to the point Mn-Pi Atlas The point Pathway Homologs Active ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Mn-Pi Atlas",
+      "hasCanvas": true,
+      "bodyTextLen": 9408,
+      "bodyTextHash": "ce92b090dbd4c7f5abffd5efdd07bd4924065ace293cd30467c900d13d100190",
+      "bodyTextPrefix": "Skip to the point Download PDF COMPARATIVE STRUCTURAL PHYSIOLOGY",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}

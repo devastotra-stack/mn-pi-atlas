@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   High-Resolution Side-by-Side Active Site Gallery
+  </title>
+  <script src="https://cdn.jsdelivr.net/npm/ngl@2.0.0-dev.37/dist/ngl.js">
+  </script>
+  <style>
+   body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f1f3f5;
+            color: #2b303a;
+            margin: 0;
+            padding: 30px;
+        }
+        .container { 
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        h1 { 
+            color: #1a0dab;
+            border-bottom: 3px solid #dee2e6;
+            padding-bottom: 12px;
+            font-weight: 800;
+        }
+        .intro-text { 
+            font-size: 1.15em;
+            line-height: 1.7;
+            color: #495057;
+            margin-bottom: 40px;
+        }
+        .pair-section { 
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+            border: 1px solid #e9ecef;
+            padding: 25px;
+            margin-bottom: 40px;
+        }
+        .pair-title { 
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #212529;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .pair-desc { 
+            font-size: 1em;
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+        .pair-grid { 
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        .viewport-container { 
+            display: flex;
+            flex-direction: column;
+        }
+        .viewport-label { 
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #495057;
+            text-align: center;
+            background: #e9ecef;
+            padding: 6px;
+            border-radius: 4px;
+        }
+        .viewport { 
+            width: 100%;
+            height: 400px;
+            background-color: #0b0c10;
+            border-radius: 8px;
+            position: relative;
+        }
+  </style>
+ </head>
+ <body>
+  <div class="container">
+   <h1>
+    High-Resolution Side-by-Side Active Site Gallery
+   </h1>
+   <p class="intro-text">
+    This advanced report displays the structural configurations of corresponding homolog representatives side-by-side. Residues highlighted in color reveal the active site environments preserved across billions of years of evolutionary divergence.
+   </p>
+   <div id="pairs-container">
+   </div>
+  </div>
+  <script>
+   const data = {"title": "High-Resolution Side-by-Side Active Site Gallery", "description": "This advanced report displays the structural configurations of corresponding homolog representatives side-by-side. Residues highlighted in color reveal the active site environments preserved across billions of years of evolutionary divergence.", "pairs": [{"title": "1. MntH (Manganese Transporter)", "desc": "Note how the acidic Asp/Glu coordination network remains spatially clustered in the pore core to coordinate divalent cations.", "left_pdb": "4YGD", "left_label": "D. radiodurans Representative", "left_sel": "ASP or GLU or ASN", "left_col": "red", "right_pdb": "5SD6", "right_label": "L. paracasei Homolog Model", "right_sel": "ASP or GLU or ASN", "right_col": "orange"}, {"title": "2. PPK (Polyphosphate Kinase)", "desc": "The basic active site cleft coordinates the phosphoric anhydride backbone of the substrate.", "left_pdb": "1XDP", "left_label": "D. radiodurans Representative", "left_sel": "HIS or LYS or ARG", "left_col": "magenta", "right_pdb": "2HHB", "right_label": "L. paracasei Homolog Model", "right_sel": "HIS or LYS or ARG", "right_col": "purple"}, {"title": "3. PPX (Exopolyphosphatase)", "desc": "Highly conserved acidic triads form a coordinate cluster with divalent metal ions.", "left_pdb": "1U64", "left_label": "D. radiodurans Representative", "left_sel": "ASP or GLU", "left_col": "yellow", "right_pdb": "1U6D", "right_label": "L. paracasei Homolog Model", "right_sel": "ASP or GLU", "right_col": "green"}, {"title": "4. PitA (Phosphate Transporter)", "desc": "Conserved positive electrostatic charges cage the transport substrate.", "left_pdb": "1PW4", "left_label": "D. radiodurans Representative", "left_sel": "LYS or ARG or SER or TYR", "left_col": "cyan", "right_pdb": "4J05", "right_label": "L. paracasei Homolog Model", "right_sel": "LYS or ARG or SER or TYR", "right_col": "blue"}, {"title": "5. FeoB (Ferrous Iron Transporter)", "desc": "The cytosolic G-domain active loops couple nucleotide binding with gate mechanics.", "left_pdb": "3SS8", "left_label": "D. radiodurans Representative", "left_sel": "THR or LYS or ASP", "left_col": "orange", "right_pdb": "2HSZ", "right_label": "L. paracasei Homolog Model", "right_sel": "THR or LYS or ASP", "right_col": "darkorange"}]};
+        const container = document.getElementById('pairs-container');
+
+        data.pairs.forEach((pair, idx) => { 
+            // Create Section block
+            const section = document.createElement('div');
+            section.className = 'pair-section';
+
+            const title = document.createElement('div');
+            title.className = 'pair-title';
+            title.textContent = pair.title;
+            section.appendChild(title);
+
+            const desc = document.createElement('div');
+            desc.className = 'pair-desc';
+            desc.textContent = pair.desc;
+            section.appendChild(desc);
+
+            const pairGrid = document.createElement('div');
+            pairGrid.className = 'pair-grid';
+
+            // Left Viewport (D. radiodurans)
+            const leftContainer = document.createElement('div');
+            leftContainer.className = 'viewport-container';
+            const leftLabel = document.createElement('div');
+            leftLabel.className = 'viewport-label';
+            leftLabel.textContent = `${pair.left_label} (PDB: ${pair.left_pdb})`;
+            const leftViewport = document.createElement('div');
+            leftViewport.id = `viewport-${idx}-left`;
+            leftViewport.className = 'viewport';
+            leftContainer.appendChild(leftLabel);
+            leftContainer.appendChild(leftViewport);
+            pairGrid.appendChild(leftContainer);
+
+            // Right Viewport (L. paracasei)
+            const rightContainer = document.createElement('div');
+            rightContainer.className = 'viewport-container';
+            const rightLabel = document.createElement('div');
+            rightLabel.className = 'viewport-label';
+            rightLabel.textContent = `${pair.right_label} (PDB: ${pair.right_pdb})`;
+            const rightViewport = document.createElement('div');
+            rightViewport.id = `viewport-${idx}-right`;
+            rightViewport.className = 'viewport';
+            rightContainer.appendChild(rightLabel);
+            rightContainer.appendChild(rightViewport);
+            pairGrid.appendChild(rightContainer);
+
+            section.appendChild(pairGrid);
+            container.appendChild(section);
+
+            // Render Structures
+            const renderStructure = (divId, pdbId, selection, color) => {
+                const stage = new NGL.Stage(divId, { backgroundColor: 'black' });
+                window.addEventListener('resize', () => stage.handleResize());
+                stage.loadFile(`https://files.rcsb.org/download/${pdbId}.pdb`).then(o => {
+                    o.addRepresentation('cartoon', {
+                        sele: 'protein',
+                        colorScheme: 'chainindex',
+                        opacity: 0.85
+                    });
+                    o.addRepresentation('spacefill', {
+                        sele: selection,
+                        color: color
+                    });
+                    o.autoView();
+                }).catch(err => console.error(`Error loading ${pdbId}:`, err));
+            };
+
+            renderStructure(`viewport-${idx}-left`, pair.left_pdb, pair.left_sel, pair.left_col);
+            renderStructure(`viewport-${idx}-right`, pair.right_pdb, pair.right_sel, pair.right_col);
+        });
+  </script>
+ </body>
+</html>
